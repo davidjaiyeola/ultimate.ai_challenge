@@ -1,2 +1,6 @@
 server:
   port: 9083
+
+ultimate-ai:
+  baseURL: https://chat.ultimate.ai/api
+  apiKey: 825765d4-7f8d-4d83-bb03-9d45ac9c27c0
