@@ -32,6 +32,7 @@ public class UltimateAIRestServiceTest {
 
         List<IntentApiResponseDto> responseList = ultimateAIRestService.processHttpPost(requestDto,"/intents");
         assertThat(responseList.size(), is(2));
+        Mockito.verify(ultimateAIRestService, Mockito.times(1)).processHttpPost(requestDto,"/intents");
 
     }
 }
