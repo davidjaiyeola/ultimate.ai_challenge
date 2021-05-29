@@ -18,7 +18,7 @@ public class SingleReplyController {
     }
 
     @PostMapping( value="/reply", produces ="application/json")
-    public Mono<ResponseEntity<SingleReplyResponseDto>> getById(@RequestBody IntentApiRequestDto dto) {
+    public Mono<ResponseEntity<SingleReplyResponseDto>> reply(@RequestBody IntentApiRequestDto dto) {
         return singleReplyService.singleReply(dto).map(intent -> ResponseEntity.ok().body(new SingleReplyResponseDto(intent)));
     }
 }
