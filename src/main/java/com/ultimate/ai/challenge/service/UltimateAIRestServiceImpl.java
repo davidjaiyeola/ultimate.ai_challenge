@@ -1,7 +1,6 @@
 package com.ultimate.ai.challenge.service;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.ultimate.ai.challenge.dto.IntentApiRequestDto;
 import com.ultimate.ai.challenge.dto.IntentApiResponseDto;
 import com.ultimate.ai.challenge.util.HttpTimeout;
@@ -16,8 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UltimateAIRestServiceImpl implements UltimateAIRestService {
@@ -35,7 +32,7 @@ public class UltimateAIRestServiceImpl implements UltimateAIRestService {
     }
 
     @Override
-    public List<IntentApiResponseDto> processHttpPost(IntentApiRequestDto request, String path) {
+    public IntentApiResponseDto processHttpPost(IntentApiRequestDto request, String path) {
         CloseableHttpResponse closeableHttpResponse = null;
         String responseObject = null;
         Long startTime = System.nanoTime();
@@ -66,8 +63,8 @@ public class UltimateAIRestServiceImpl implements UltimateAIRestService {
         Double timeMills5 = (double) (Double.valueOf(endTime5) / Double.valueOf(1000000));
         logger.info("Completed request in" + " ->" + endTime5 + "ns" + " >>> " + timeMills5 + "ms");
 
-        List<IntentApiResponseDto> intentsList = gson.fromJson(responseObject, new TypeToken<List<IntentApiResponseDto>>(){}.getType());
-        return intentsList;
+        IntentApiResponseDto intentApiResponseDto = gson.fromJson(responseObject, IntentApiResponseDto.class);
+        return intentApiResponseDto;
     }
 
 

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class IntentApiRequestDto {
-    private String botId;
-    private String message;
+public class IntentApiDto {
+    private Double confidence;
+    private String name;
 }
