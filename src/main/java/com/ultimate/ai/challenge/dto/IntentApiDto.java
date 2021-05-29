@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class IntentApiResponseDto {
-    private List<IntentApiDto> intents = new ArrayList<>();
+public class IntentApiDto {
+    private Double confidence;
+    private String name;
 }

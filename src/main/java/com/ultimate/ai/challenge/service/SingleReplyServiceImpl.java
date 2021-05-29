@@ -1,7 +1,7 @@
 package com.ultimate.ai.challenge.service;
 
+import com.ultimate.ai.challenge.dto.IntentApiDto;
 import com.ultimate.ai.challenge.dto.IntentApiRequestDto;
-import com.ultimate.ai.challenge.dto.IntentApiResponseDto;
 import com.ultimate.ai.challenge.model.SingleReply;
 import com.ultimate.ai.challenge.repository.SingleReplyRepository;
 import org.slf4j.Logger;
@@ -37,9 +37,9 @@ public class SingleReplyServiceImpl implements SingleReplyService{
 
     @Override
     public Mono<String> singleReply(final IntentApiRequestDto dto) {
-        List<IntentApiResponseDto> intents = ultimateAIRestService.processHttpPost(dto,"/intents");
-        intents.stream().sorted(Comparator.comparingDouble(IntentApiResponseDto::getConfidence).reversed());
-        String intent = intents.get(0).getIntent();
+        List<IntentApiDto> intents = ultimateAIRestService.processHttpPost(dto,"/intents").getIntents();
+        intents.stream().sorted(Comparator.comparingDouble(IntentApiDto::getConfidence).reversed());
+        String intent = intents.get(0).getName();
         //Get the database Record
         SingleReply singleReply = findById(intent).block();
         //We reply Not_Available if no record found for the intent in the DB

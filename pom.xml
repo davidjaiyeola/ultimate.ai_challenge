@@ -119,6 +119,10 @@
                     <mainClass>com.ultimate.ai.challenge.UltimateAIChallengeApplication</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+            </plugin>
         </plugins>
     </build>
 

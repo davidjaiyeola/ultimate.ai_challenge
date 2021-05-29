@@ -30,6 +30,7 @@ public class SingleReplyControllerTest {
     private static SingleReplyResponseDto responseDto1;
     private static SingleReplyResponseDto responseDto2;
 
+
     @BeforeAll
     public static void init() {
         dto1                  = new IntentApiRequestDto("5f74865056d7bb000fcd39ff","Hello");
