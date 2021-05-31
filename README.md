@@ -21,7 +21,7 @@ Ultimate.ai Backend Challenge is a webserver that accepts a bot identifier and a
 
 ## How to Test and Run
     Test app with mvn test
-
+    Build the APP with mvn clean install
     Run App with mvn spring-boot:run
 
 ## Swagger Docs

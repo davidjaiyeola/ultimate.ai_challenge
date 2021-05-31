@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-@RestController()
+@RestController
 @RequestMapping({"/api/v1"})
 @Api(value = "ChatBot", description = "Rest API for ChatBot operations", tags = "ChatBot API")
 public class SingleReplyController {
